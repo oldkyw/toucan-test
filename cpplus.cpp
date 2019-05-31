@@ -42,7 +42,9 @@ int main()
     cout << "Dla ilu punktow obliczyc y?: ";
     cin >> n;
     
-    double x_values[n], y_values[n];
+    double *x_values, *y_values;
+    x_values = new double[n];
+    y_values = new double[n];
     ofstream outfile;
     outfile.open("points.csv");
     
@@ -57,6 +59,7 @@ int main()
     }
     
     outfile.close();
-   
+    delete [] x_values;
+    delete [] y_values;
     return 0;
 }
